@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.image {
+    align-self: center;
+}
+
+.info {
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.edit-button {
+}

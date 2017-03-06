@@ -1,0 +1,12 @@
+<div class="container" *ngIf="product">
+  <div class="image">
+    <img [src]="product.imagePath" alt="product image" style="width: 80px" />
+  </div>
+  <div class="info">
+    {{product.name}}
+    {{product.price}}kr.
+  </div>
+  <div class="edit-button">
+    <button class="btn btn-primary" (click)="onEdit()">Breyta vöru</button>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+.body {
+    margin: 20px;
+    margin-top: 40px;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.flex-item {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.image {
+    height: auto; 
+    width: auto; 
+    max-width: 200px; 
+    max-height: 200px;
+    padding-right: 10px;
+}
+
+.add-button {
+    margin-left: auto;
+}
+
+.product-container {
+    padding: 0;
+    margin: 0;
+    margin-top: 30px;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.flex-product {
+    width: 300px;
+    height: 200px;
+    padding: 5px;
+    margin-top: 10px;
+    
+    font-weight: bold;
+    text-align: center;
+}

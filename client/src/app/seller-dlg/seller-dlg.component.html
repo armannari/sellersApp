@@ -1,0 +1,49 @@
+ <div class="flex-container"> 
+  <div class="modal-header">
+    <h4 class="modal-title">Nýr seljandi</h4>
+    <!--<button type="button" class="close" aria-label="Close" (click)="onCancel()">
+      <span aria-hidden="true"> &times;</span>
+    </button>-->
+  </div>
+
+  <form #sellerForm="ngForm">
+    <div class="modal-body">
+      <label for="name">Nafn</label>
+      <input type="text" id="name" required minlength="3" name="name" placeholder="Jón Jónsson" [(ngModel)]="seller.name" #name="ngModel" autofocus/>
+      <div *ngIf="name.errors" class="alert alert-danger">
+        <div [hidden]="!name.errors.required">
+          Name is required
+        </div>
+        <div [hidden]="!name.errors.minlength">
+          Name must be at least 3 characters long.
+        </div>
+      </div>
+      <br>
+
+      <label for="category">Flokkur</label>
+      <input type="text" id="category" required minlength="4" name="category" placeholder="Hannyrðir" [(ngModel)]="seller.category" #category="ngModel"/>
+      <div *ngIf="category.errors" class="alert alert-danger">
+        <div [hidden]="!category.errors.required">
+          Category is required
+        </div>
+        <div [hidden]="!category.errors.minlength">
+          Category must be at least 4 characters long.
+        </div> 
+      </div>
+      <br>
+
+      <label for="imagePath">Mynd</label>
+      <input type="text" id="imagePath" required name="imagePath" placeholder="http://example.com" [(ngModel)]="seller.imagePath" #imagePath="ngModel"/>
+      <div *ngIf="imagePath.errors" class="alert alert-danger">
+        <div [hidden]="!imagePath.errors.required">
+          Image path is required
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer flex-item">
+      <button type="button" class="btn btn-secondary" (click)="onCancel()">Loka</button>
+      <button type="button" class="btn btn-success"[disabled]="!sellerForm.form.valid" (click)="onOk()">Samþykkja</button>
+    </div>
+  </form>
+</div>
