@@ -1,3 +1,5 @@
+<template ngbModalContainer></template>
+
 <div class="body">
   <div class="flex-container" *ngIf="seller">
     <img class="image" src="{{seller.imagePath}}" alt="smuuu" />
@@ -5,17 +7,39 @@
       <h2>{{seller.name}}</h2>
       <h3>{{seller.category}}</h3>
     </div>
-  <div class="add-button">
-    <button class="btn btn-primary">Bæta við vöru</button>
-  </div>
-</div>
-
-  <div class="product-container">
-    <div class="flex-product" *ngFor="let p of products">
-      <app-product-card 
-        [product]="p"
-        (productUpdated)="onProductEdited($event)">
-      </app-product-card>
+    <div class="add-button">
+      <button class="btn btn-primary" (click)="addProduct()">Bæta við vöru</button>
     </div>
   </div>
+
+  <div class="product-tabs">
+    <ngb-tabset>
+      <ngb-tab title="Allar vörur">
+        <template ngbTabContent>
+          <div class="product-container">
+            <div class="flex-product" *ngFor="let p of products">
+              <app-product-card 
+                [product]="p"
+                (productUpdated)="onProductEdited($event)">
+              </app-product-card>
+            </div>
+          </div>
+        </template>
+      </ngb-tab>
+
+      <ngb-tab title="Topp 10" (click)="getTopTen()">
+        <template ngbTabContent>
+          <div class="product-container">
+            <div class="flex-product" *ngFor="let p of topTenProducts">
+              <app-product-card 
+                [product]="p"
+                (productUpdated)="onProductEdited($event)">
+              </app-product-card>
+            </div>
+          </div>
+        </template>
+      </ngb-tab>
+    </ngb-tabset>
+  </div>
+
 </div>

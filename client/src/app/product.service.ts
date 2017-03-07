@@ -23,4 +23,9 @@ export class ProductService {
     });
   }
 
+  addProduct(obj: SellerProduct, id: number) {
+    return this.http.post('http://localhost:5000/api/sellers/' + id + '/products', obj).toPromise().then(response =>
+      response.json().data);
+  }
+
 }

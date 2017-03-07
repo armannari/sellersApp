@@ -12,6 +12,7 @@ import { SellerComponent } from './seller/seller.component';
 import { ProductService } from './product.service';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { SellerDlgComponent } from './seller-dlg/seller-dlg.component';
+import { ProductDlgComponent } from './product-dlg/product-dlg.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { SellerDlgComponent } from './seller-dlg/seller-dlg.component';
     SellerListComponent,
     SellerComponent,
     ProductCardComponent,
-    SellerDlgComponent
+    SellerDlgComponent,
+    ProductDlgComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +42,6 @@ import { SellerDlgComponent } from './seller-dlg/seller-dlg.component';
   ],
   providers: [SellersService, ProductService],
   bootstrap: [AppComponent],
-  entryComponents: [SellerDlgComponent]
+  entryComponents: [SellerDlgComponent, ProductDlgComponent]
 })
 export class AppModule { }

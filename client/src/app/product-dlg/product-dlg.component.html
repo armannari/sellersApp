@@ -1,0 +1,62 @@
+ <div class="flex-container"> 
+  <div class="modal-header">
+    <h4 class="modal-title">Nýr seljandi</h4>
+  </div>
+
+  <form #sellerForm="ngForm">
+    <div class="modal-body">
+      <label for="name">Nafn</label>
+      <input type="text" id="name" required minlength="3" name="name" placeholder="Jón Jónsson" [(ngModel)]="product.name" #name="ngModel" autofocus/>
+      <div *ngIf="name.errors" class="alert alert-danger">
+        <div [hidden]="!name.errors.required">
+          Name is required
+        </div>
+        <div [hidden]="!name.errors.minlength">
+          Name must be at least 3 characters long.
+        </div>
+      </div>
+      <br>
+
+      <label for="price">Verð í krónum</label>
+      <input type="text" id="price" required name="price" placeholder="100" [(ngModel)]="product.price" #price="ngModel"/>
+      <div *ngIf="price.errors" class="alert alert-danger">
+        <div [hidden]="!price.errors.required">
+          price is required
+        </div>
+      </div>
+      <br>
+
+      <label for="quantitySold">Seld eintök</label>
+      <input type="text" id="quantitySold" required name="quantitySold" placeholder="http://example.com" [(ngModel)]="product.quantitySold" #quantitySold="ngModel"/>
+      <div *ngIf="quantitySold.errors" class="alert alert-danger">
+        <div [hidden]="!quantitySold.errors.required">
+          Quantity sold is required
+        </div>
+      </div>
+      <br>
+
+     <label for="quantityInStock">Eintök á lager</label>
+      <input type="text" id="quantityInStock" required name="quantityInStock" placeholder="http://example.com" [(ngModel)]="product.quantityInStock" #quantityInStock="ngModel"/>
+      <div *ngIf="quantityInStock.errors" class="alert alert-danger">
+        <div [hidden]="!quantityInStock.errors.required">
+          Quantity in stock is required
+        </div>
+      </div>
+      <br>
+
+      <label for="imagePath">Mynd</label>
+      <input type="text" id="imagePath" required name="imagePath" placeholder="http://example.com" [(ngModel)]="product.imagePath" #imagePath="ngModel"/>
+      <div *ngIf="imagePath.errors" class="alert alert-danger">
+        <div [hidden]="!imagePath.errors.required">
+          Image path is required
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer flex-item">
+      <button type="button" class="btn btn-secondary" (click)="onCancel()">Loka</button>
+      <button type="button" class="btn btn-success" [disabled]="!sellerForm.form.valid" (click)="onOk()">Samþykkja</button>
+    </div>
+  </form>
+</div>
+

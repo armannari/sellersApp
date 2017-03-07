@@ -123,7 +123,7 @@ app.post("/api/sellers", (req, res) => {
 
 app.put("/api/sellers/:id", (req, res) => {
 	// Check if we can find the seller:
-	var seller = findSellerById(req.params.id);
+	var seller = findSellerById(parseInt(req.params.id));
 	if (!seller) {
 		res.statusCode = 404;
 		return res.send('Error 404: No seller found!');
@@ -160,6 +160,7 @@ app.get("/api/sellers/:id/products", (req, res) => {
 
 // Adds a product to the catalog of a given seller:
 app.post("/api/sellers/:id/products", (req, res) => {
+	console.log('Virkaaaaar!!!!');
 
 	// Validate seller:
 	var seller = findSellerById(parseInt(req.params.id));
