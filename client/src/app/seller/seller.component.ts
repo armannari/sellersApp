@@ -43,11 +43,11 @@ export class SellerComponent implements OnInit {
   addProduct() {
     const modalInstance = this.modalService.open(ProductDlgComponent);
     modalInstance.componentInstance.product = {
-      name: "",
-      price: "",
-      quantitySold: "",
-      quantityInStock: "",
-      imagePath: ""
+      name: '',
+      price: 0,
+      quantitySold: 0,
+      quantityInStock: 0,
+      imagePath: ''
     }
     modalInstance.result.then(obj => {
       console.log('Dialog was closed using OK!');
